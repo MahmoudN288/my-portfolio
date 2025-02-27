@@ -1,0 +1,33 @@
+body {
+    font-family: Arial, sans-serif;
+    background: #fff;
+    color: #333;
+    text-align: center;
+    transition: background 0.3s, color 0.3s;
+}
+header {
+    display: flex;
+    justify-content: space-between;
+    padding: 20px;
+}
+button {
+    cursor: pointer;
+    background: none;
+    border: none;
+    font-size: 24px;
+}
+.gallery img {
+    width: 200px;
+    margin: 10px;
+    transition: transform 0.3s ease-in-out;
+}
+.gallery img:hover {
+    transform: scale(1.1);
+}
+.dark-mode {
+    background: #111;
+    color: #eee;
+}
+.dark-mode button {
+    color: #eee;
+}
