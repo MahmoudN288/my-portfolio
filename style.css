@@ -19,77 +19,62 @@ nav {
     top: 0;
     width: 100%;
     z-index: 1000;
-    overflow: hidden; /* Ensure content doesn't get cut */
 }
 
-/* Nav Items */
 nav ul {
     list-style: none;
     display: flex;
     gap: 20px;
     padding: 0;
     margin: 0;
-    flex-wrap: wrap;
 }
 
 nav ul li {
     display: inline;
 }
 
-nav ul li a {
+nav a {
     color: white;
     text-decoration: none;
     padding: 10px;
-    font-size: 16px;
+    font-size: 18px;
 }
 
-/* Dark Mode Toggle Button */
 #theme-toggle {
     cursor: pointer;
     background: none;
     border: none;
     font-size: 24px;
     color: white;
-    margin-left: auto; /* Push it to the right */
-    padding: 10px;
-}
-
-/* Responsive Design */
-@media (max-width: 768px) {
-    nav {
-        flex-direction: row;
-        flex-wrap: wrap;
-        justify-content: space-between;
-        padding: 10px;
-    }
-
-    nav ul {
-        flex-direction: row;
-        flex-wrap: wrap;
-        justify-content: flex-start;
-        gap: 10px;
-    }
-
-    nav ul li {
-        text-align: center;
-    }
-
-    #theme-toggle {
-        font-size: 28px; /* Make it bigger */
-        margin-left: 10px;
-    }
+    margin-left: auto;
 }
 
 /* Dark Mode */
 .dark-mode {
-    background: #111;
-    color: #eee;
+    background: #222;
+    color: white;
 }
 
 .dark-mode nav {
-    background: #333;
+    background: #111;
 }
 
-.dark-mode #theme-toggle {
-    color: #f4b400;
+/* Sections */
+section {
+    padding: 100px 20px;
+}
+
+/* Image Gallery */
+.gallery {
+    display: flex;
+    gap: 15px;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.gallery img {
+    width: 200px;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 8px;
 }
