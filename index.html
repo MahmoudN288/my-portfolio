@@ -1,58 +1,95 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Portfolio</title>
-    <link rel="stylesheet" href="style.css">
-    <script defer src="script.js"></script>
-</head>
-<body>
-    <header>
-        <nav>
-            <ul>
-                <li><a href="#home">Home</a></li>
-                <li><a href="#about">About</a></li>
-                <li><a href="#experience">Experiences</a></li>
-                <li><a href="#skills">Skills</a></li>
-                <li><a href="#portfolio">Portfolio</a></li>
-                <li><a href="#contact">Contact</a></li>
-            </ul>
-            <button id="theme-toggle">🌙</button>
-        </nav>
-    </header>
+/* General Styles */
+body {
+    font-family: Arial, sans-serif;
+    background: #fff;
+    color: #333;
+    margin: 0;
+    padding: 0;
+    transition: background 0.3s, color 0.3s;
+}
 
-    <section id="home">
-        <h1>Welcome to My Portfolio</h1>
-    </section>
+/* Navigation Bar */
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #222;
+    padding: 15px 20px;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+    overflow: hidden; /* Ensure content doesn't get cut */
+}
 
-    <section id="about">
-        <h2>About Me</h2>
-        <p>I am an Android Developer specializing in Kotlin, Jetpack Compose, and UI/UX.</p>
-    </section>
+/* Nav Items */
+nav ul {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+    padding: 0;
+    margin: 0;
+    flex-wrap: wrap;
+}
 
-    <section id="experience">
-        <h2>Experiences</h2>
-        <p>Details about your work experience.</p>
-    </section>
+nav ul li {
+    display: inline;
+}
 
-    <section id="skills">
-        <h2>Skills</h2>
-        <p>List your technical and soft skills.</p>
-    </section>
+nav ul li a {
+    color: white;
+    text-decoration: none;
+    padding: 10px;
+    font-size: 16px;
+}
 
-    <section id="portfolio">
-        <h2>My Projects</h2>
-        <div class="gallery">
-            <img src="project1.jpg" alt="Project 1">
-            <img src="project2.jpg" alt="Project 2">
-            <img src="project3.jpg" alt="Project 3">
-        </div>
-    </section>
+/* Dark Mode Toggle Button */
+#theme-toggle {
+    cursor: pointer;
+    background: none;
+    border: none;
+    font-size: 24px;
+    color: white;
+    margin-left: auto; /* Push it to the right */
+    padding: 10px;
+}
 
-    <section id="contact">
-        <h2>Contact Me</h2>
-        <p>Email: your@email.com</p>
-    </section>
-</body>
-</html>
+/* Responsive Design */
+@media (max-width: 768px) {
+    nav {
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        padding: 10px;
+    }
+
+    nav ul {
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: flex-start;
+        gap: 10px;
+    }
+
+    nav ul li {
+        text-align: center;
+    }
+
+    #theme-toggle {
+        font-size: 28px; /* Make it bigger */
+        margin-left: 10px;
+    }
+}
+
+/* Dark Mode */
+.dark-mode {
+    background: #111;
+    color: #eee;
+}
+
+.dark-mode nav {
+    background: #333;
+}
+
+.dark-mode #theme-toggle {
+    color: #f4b400;
+}
