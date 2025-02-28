@@ -27,7 +27,7 @@ nav ul {
     gap: 20px;
     padding: 0;
     margin: 0;
-    flex-wrap: wrap; /* Ensure items wrap properly */
+    flex-wrap: wrap;
 }
 
 nav ul li {
@@ -48,8 +48,8 @@ nav ul li a {
     border: none;
     font-size: 24px;
     color: white;
-    margin-left: auto; /* Push it to the right */
-    position: relative;
+    margin-left: 20px; /* Add margin to push it away from the nav links */
+    padding: 10px;
 }
 
 /* Responsive Nav */
@@ -74,7 +74,8 @@ nav ul li a {
     #theme-toggle {
         position: absolute;
         top: 10px;
-        right: 10px;
+        right: 15px;
+        font-size: 28px; /* Increase size for better visibility */
     }
 }
 
