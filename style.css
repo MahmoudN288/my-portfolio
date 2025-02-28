@@ -19,6 +19,12 @@ nav {
     top: 0;
     width: 100%;
     z-index: 1000;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Fix hidden content issue */
+body {
+    padding-top: 70px; /* Push content down so it's not hidden by navbar */
 }
 
 /* Navigation Links */
@@ -49,12 +55,24 @@ nav {
 /* Dark Mode Toggle Button */
 .theme-button {
     cursor: pointer;
-    background: transparent;
+    background: #444;
     border: none;
-    font-size: 24px;
+    font-size: 20px;
     color: white;
-    margin-left: 15px;
-    padding: 8px 12px;
+    padding: 10px 15px;
+    border-radius: 5px;
+    margin-left: auto; /* Push to the right */
+    margin-right: 25px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Ensure full button visibility */
+nav .theme-button {
+    height: 40px;
+    width: 40px;
+    font-size: 24px;
 }
 
 /* Responsive Fix */
