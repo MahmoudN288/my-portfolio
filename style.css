@@ -4,17 +4,46 @@ body {
     color: #333;
     text-align: center;
     transition: background 0.3s, color 0.3s;
+    scroll-behavior: smooth;
 }
-header {
+nav {
     display: flex;
     justify-content: space-between;
-    padding: 20px;
+    align-items: center;
+    background: #222;
+    padding: 10px 20px;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+}
+nav ul {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+}
+nav ul li {
+    display: inline;
+}
+nav ul li a {
+    color: white;
+    text-decoration: none;
+    padding: 10px;
+    transition: color 0.3s;
+}
+nav ul li a:hover {
+    color: #f4b400;
 }
 button {
     cursor: pointer;
     background: none;
     border: none;
     font-size: 24px;
+    color: white;
+}
+section {
+    padding: 100px 20px;
+    margin-top: 60px;
 }
 .gallery img {
     width: 200px;
@@ -27,6 +56,9 @@ button {
 .dark-mode {
     background: #111;
     color: #eee;
+}
+.dark-mode nav {
+    background: #333;
 }
 .dark-mode button {
     color: #eee;
