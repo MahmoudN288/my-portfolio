@@ -21,7 +21,8 @@ nav {
     z-index: 1000;
 }
 
-nav ul {
+/* Navigation Links */
+.nav-links {
     list-style: none;
     display: flex;
     gap: 20px;
@@ -29,24 +30,43 @@ nav ul {
     margin: 0;
 }
 
-nav ul li {
+.nav-links li {
     display: inline;
 }
 
-nav a {
-    color: white;
+.nav-links a {
     text-decoration: none;
-    padding: 10px;
-    font-size: 18px;
+    color: white;
+    font-size: 16px;
+    padding: 8px 12px;
+    transition: color 0.3s;
 }
 
-#theme-toggle {
+.nav-links a:hover {
+    color: #ff9800;
+}
+
+/* Dark Mode Toggle Button */
+.theme-button {
     cursor: pointer;
-    background: none;
+    background: transparent;
     border: none;
     font-size: 24px;
     color: white;
-    margin-left: auto;
+    margin-left: 15px;
+    padding: 8px 12px;
+}
+
+/* Responsive Fix */
+@media (max-width: 768px) {
+    nav {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .theme-button {
+        margin-left: auto;
+    }
 }
 
 /* Dark Mode */
@@ -56,25 +76,5 @@ nav a {
 }
 
 .dark-mode nav {
-    background: #111;
-}
-
-/* Sections */
-section {
-    padding: 100px 20px;
-}
-
-/* Image Gallery */
-.gallery {
-    display: flex;
-    gap: 15px;
-    flex-wrap: wrap;
-    justify-content: center;
-}
-
-.gallery img {
-    width: 200px;
-    height: 150px;
-    object-fit: cover;
-    border-radius: 8px;
+    background: black;
 }
