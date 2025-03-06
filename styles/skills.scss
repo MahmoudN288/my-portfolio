@@ -1,0 +1,111 @@
+/* Skills Section */
+.skills-section {
+    max-width: 800px;
+    margin: auto;
+    text-align: center;
+    padding: 50px 20px;
+}
+
+/* ✨ Apply Animation to Skills Section */
+.skills-section.animated {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 0.6s ease-out;
+}
+
+.skills-section.animated.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Title Styling */
+.skills-section h2 {
+    font-size: 2rem;
+    margin-bottom: 20px;
+    color: #222;
+}
+
+/* Responsive Grid Layout */
+.skills-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Auto-adjusting columns */
+    gap: 20px;
+    justify-content: center;
+}
+
+/* Skill Item */
+.skill {
+    text-align: left;
+}
+
+/* Skill Label */
+.skill span {
+    font-size: 1rem;
+    font-weight: bold;
+    display: block;
+    margin-bottom: 5px;
+    color: #000;
+}
+
+/* 🎯 Ensure Progress Bar Animates on Visibility */
+.skill .progress {
+    width: 0%; /* Start at 0% */
+    transition: width 1.5s ease-in-out;
+}
+
+.skills-section.animated.visible .skill .progress {
+    width: var(--progress-value); /* Use custom property for width */
+}
+
+/* Progress Bar Container */
+.progress-bar {
+    width: 100%;
+    height: 10px;
+    background: #ddd;
+    border-radius: 5px;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Progress Bar Fill */
+.progress {
+    height: 100%;
+    background: #007bff;
+    width: 0%; /* Default to 0% for animation */
+    border-radius: 5px;
+    transition: width 1.5s ease-in-out;
+}
+
+/* Dark Mode Compatibility */
+.dark-mode .skills-section h2 {
+    color: #fff;
+}
+
+.dark-mode .skill span {
+    color: #fff;
+    opacity: 0.8;
+}
+
+.dark-mode .progress-bar {
+    background: #555;
+}
+
+/* 🟢 Responsive Adjustments for Mobile Screens */
+@media (max-width: 768px) {
+    .skills-section {
+        padding: 40px 15px; /* Slightly reduce padding for smaller screens */
+    }
+
+    .skills-container {
+        grid-template-columns: 1fr; /* Switch to single column */
+        gap: 15px;
+    }
+
+    .skill span {
+        font-size: 0.95rem; /* Reduce font size for mobile */
+    }
+
+    .progress-bar {
+        height: 8px; /* Slightly smaller bars for better fit */
+    }
+}

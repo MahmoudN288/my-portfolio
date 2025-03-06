@@ -1,0 +1,58 @@
+html {
+    scroll-behavior: smooth; /* Smooth scrolling effect */
+}
+
+/* ✅ Apply light mode by default */
+html, body {
+    background: url("assets/backgroundl.jpg") no-repeat center top;
+    background-size: cover !important;
+    background-attachment: fixed !important;
+    margin: 0;
+    padding: 0;
+}
+
+/* ✅ Dark mode instantly applied */
+html.dark-mode, body.dark-mode {
+    background: url("assets/backgroundd.jpg") no-repeat center top !important;
+    background-size: cover !important;
+    background-attachment: fixed !important;
+}
+
+header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    position: relative;
+}
+
+:root {
+    --bg-image: url("assets/backgroundl.jpg");
+}
+
+.dark-mode {
+    --bg-image: url("assets/backgroundd.jpg");
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background: var(--bg-image) no-repeat center top;
+    background-size: cover;
+    background-attachment: fixed; /* Optional parallax effect */
+    color: white;
+    margin: 0;
+    padding: 0;
+    padding-top: var(--nav-height, 60px);
+    transition: color 0.3s;
+}
+
+.animated {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 0.6s ease-out;
+}
+
+.animated.visible {
+    opacity: 1;
+    transform: translateY(0);
+}

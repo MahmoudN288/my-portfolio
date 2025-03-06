@@ -1,0 +1,215 @@
+/* About Section */
+.about-section {
+    max-width: 1000px;
+    margin: auto;
+    padding: 80px 20px;
+    position: relative;
+    background-size: cover;
+    text-align: center;
+}
+
+/* Flex container for alignment */
+.about-content {
+    display: flex;
+    align-items: center; /* Align image and text vertically */
+    gap: 30px; /* Space between image and text */
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+    visibility: hidden;
+}
+
+/* Container */
+.container {
+    max-width: 1000px;
+    margin: auto;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Image Styling */
+.about-image img {
+    width: 180px;
+    height: 180px;
+    border-radius: 50%;
+    object-fit: cover;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+    margin-bottom: 20px;
+}
+
+/* Text Styling */
+.about-text {
+    flex: 1;
+    max-width: 600px;
+    text-align: left;
+    padding: 20px;
+}
+
+.name {
+    font-size: 2rem;
+    font-weight: bold;
+    margin: 0;
+    color: #222;
+}
+
+.job-title {
+    font-size: 1.2rem;
+    color: #007bff; /* Highlighted color */
+    margin: 5px 0 15px;
+    font-weight: 600;
+}
+
+.about-text h2 {
+    font-size: 2rem;
+    color: #222;
+    margin-bottom: 10px;
+}
+
+.about-text p {
+    font-size: 1rem;
+    color: #000;
+    line-height: 1.6;
+    margin-bottom: 15px;
+}
+
+/* Buttons */
+.about-buttons {
+    margin-top: 20px;
+    display: flex;
+    gap: 15px;
+}
+
+/* Button Styling */
+.btn {
+    display: inline-block;
+    padding: 12px 20px;
+    font-size: 1rem;
+    font-weight: bold;
+    text-decoration: none;
+    border-radius: 25px;
+    transition: 0.3s;
+}
+
+/* Download CV Button */
+.download-btn {
+    background: #007bff;
+    color: #fff;
+}
+
+.download-btn:hover {
+    background: #0056b3;
+}
+
+/* Hire Me Button */
+.hire-btn {
+    background: #ff9900;
+    color: #fff;
+}
+
+.hire-btn:hover {
+    background: #e68a00;
+}
+
+/* Animation on Load */
+.about-content.visible {
+    opacity: 1;
+    transform: translateY(0);
+    visibility: visible;
+}
+
+/* 🟢 Responsive Adjustments for Mobile Screens */
+@media (max-width: 768px) {
+    .about-content {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .about-text {
+        text-align: center;
+    }
+
+    .about-buttons {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .about-image img {
+        width: 150px; /* Slightly smaller image for mobile */
+        height: 150px;
+    }
+
+    .name {
+        font-size: 1.8rem;
+    }
+
+    .job-title {
+        font-size: 1rem;
+    }
+
+    .about-text h2 {
+        font-size: 1.8rem;
+    }
+
+    .about-text p {
+        font-size: 0.95rem;
+    }
+}
+
+/* General animation */
+@keyframes fadeInLeft {
+    from {
+        opacity: 0;
+        transform: translateX(-50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes fadeInRight {
+    from {
+        opacity: 0;
+        transform: translateX(50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes fadeInTop {
+    from {
+        opacity: 0;
+        transform: translateY(-50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeInBottom {
+    from {
+        opacity: 0;
+        transform: translateY(50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* 🔹 Dark Mode */
+.dark-mode .name,
+.dark-mode .job-title,
+.dark-mode .about-text h2,
+.dark-mode .about-text p {
+    color: #fff;
+}
+
+.dark-mode .about-buttons .btn {
+    color: #fff;
+}

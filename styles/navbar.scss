@@ -1,0 +1,141 @@
+/* Default Navbar (Light Mode - Transparent) */
+nav {
+    display: flex;
+    justify-content: space-between; /* Ensures even spacing */
+    align-items: center;
+    background: rgba(255, 255, 255, 0.9);
+    transition: background 0.3s, color 0.3s;
+    color: #000;
+    padding: 15px 20px;
+    position: fixed;
+    top: 0;
+    left: 0; /* Ensures navbar starts from the very left */
+    right: 0; /* Ensures it spans full width */
+    width: 100%; /* Just to reinforce full width */
+    height: 60px;
+    z-index: 1000;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    box-sizing: border-box; /* Ensures padding doesn’t affect width */
+}
+
+/* Logo Image */
+.logo img {
+    height: 50px; /* Adjust size */
+    width: auto; /* Maintain aspect ratio */
+    object-fit: contain; /* Ensures the image fits without distortion */
+}
+
+/* Navbar Links */
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+}
+
+.nav-links li a {
+    text-decoration: none;
+    color: #000; /* Light Mode: Black */
+    font-weight: bold;
+    transition: color 0.3s;
+    padding: 10px;
+    font-size: 1rem;
+}
+
+/* 🔹 Responsive Navigation */
+.hamburger {
+    display: none;
+    cursor: pointer;
+    font-size: 24px;
+    background: none;
+    border: none;
+    color: #000;
+}
+
+.nav-links li a:hover {
+    color: #ff9900;
+}
+
+/* Navbar when scrolled */
+nav.scrolled {
+    background: rgba(100, 100, 100, 0.3); /* Grey with high opacity */
+    color: #000;
+}
+
+/* Mobile Menu */
+@media (max-width: 768px) {
+    .nav-links {
+        display: none;
+        flex-direction: column;
+        background: rgba(255, 255, 255, 0.95);
+        position: absolute;
+        top: 60px;
+        left: 0;
+        width: 100%;
+        text-align: center;
+        padding: 10px 0;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .nav-links li {
+        padding: 10px;
+    }
+
+    .nav-links.active {
+        display: flex;
+    }
+
+    .hamburger {
+        display: block;
+    }
+
+    .dark-mode .nav-links {
+        background: rgba(0, 0, 0, 0.9);
+    }
+}
+
+.dark-mode nav {
+    background: rgba(0, 0, 0, 0.9); /* Black with little opacity */
+    color: #fff;
+}
+
+/* Dark Mode Navbar when Scrolled (Darker Black) */
+.dark-mode nav.scrolled {
+    background: rgba(0, 0, 0, 0.3); /* Black with high opacity */
+    color: #fff;
+}
+
+/* Change the logo in Dark Mode */
+.dark-mode .logo img {
+    content: url("assets/mgd.png"); /* Change to dark mode logo */
+}
+
+/* Dark Mode Navbar Links */
+.dark-mode .nav-links li a {
+    color: #fff;
+}
+
+.dark-mode .nav-links li a:hover {
+    color: #ac71f0;
+}
+
+.dark-mode .hamburger {
+    color: #fff;
+}
+
+/* Sections Styling */
+.section {
+    height: 100vh; /* Full screen */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 2rem;
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+/* Make sections visible when scrolled */
+.section.visible {
+    opacity: 1;
+    transform: translateY(0);
+}

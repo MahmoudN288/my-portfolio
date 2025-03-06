@@ -1,0 +1,302 @@
+/* Experience Section */
+.experience-section {
+    max-width: 1000px;
+    margin: auto;
+    padding: 60px 20px;
+}
+
+.section-title {
+    text-align: center;
+    font-size: 2rem;
+    margin-bottom: 40px;
+    color: #222;
+}
+
+/* Experience Layout */
+.experience-container {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+/* Align experience items in a row */
+.experience {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0; /* Reduce space between Job, Timeline, and Summary */
+    flex-wrap: wrap; /* Allows wrapping on smaller screens */
+}
+
+/* Left: Job Title & Company */
+.experience-left {
+    width: 30%;
+    min-width: 250px;
+    text-align: left;
+}
+
+.experience-left h3 {
+    font-size: 1.5rem;
+    color: #007bff;
+    margin: 0;
+}
+
+.company-name {
+    font-size: 1rem;
+    color: #555;
+    font-weight: bold;
+}
+
+/* Timeline Container */
+.timeline {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 40%;
+    justify-content: center;
+    position: relative;
+    min-width: 250px;
+    margin-bottom: 0px; /* Reduce space below the timeline */
+}
+
+/* Wrapper for Dates & Points */
+.timeline-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    position: relative;
+}
+
+/* Dates Above Points */
+.timeline-dates {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    font-size: 0.9rem;
+    color: #555;
+    font-weight: bold;
+    position: absolute;
+    top: -20px;
+}
+
+/* Horizontal Line */
+.timeline-line {
+    height: 3px;
+    width: 90%;
+    background-color: #007bff;
+    position: relative;
+    top: 10px;
+}
+
+/* Points (Circles) */
+.timeline-points {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    position: relative;
+}
+
+@keyframes shrink {
+    from {
+        transform: scale(1);
+    }
+    to {
+        transform: scale(0.7);
+    }
+}
+
+@keyframes popIn {
+    from {
+        transform: scale(0);
+        opacity: 0;
+    }
+    to {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+.timeline-point {
+    width: 14px;
+    height: 14px;
+    background-color: #007bff;
+    border-radius: 50%;
+    border: 3px solid white;
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.8);
+    position: relative;
+    z-index: 2;
+    display: inline-block; 
+    animation: popIn 0.6s ease-in-out forwards;
+    transition: transform 0.3s ease-in-out;
+}
+
+/* Shrinks when hovered */
+.timeline-point:hover {
+    animation: shrink 0.6s ease-in-out forwards;
+}
+
+.timeline-point::after {
+    content: attr(data-label);
+    position: absolute;
+    top: -25px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #007bff;
+    color: white;
+    padding: 5px 8px;
+    font-size: 0.8rem;
+    border-radius: 5px;
+    white-space: nowrap;
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out;
+}
+
+.timeline-point:hover::after {
+    opacity: 1;
+}
+
+/* Right: Empty Space (Aligns Everything) */
+.experience-right {
+    width: 30%;
+    min-width: 250px;
+    text-align: right;
+}
+
+/* Summary & Achievements (Full Width Below) */
+.experience-summary {
+    width: 100%;
+    padding-top: 0; /* Remove extra padding */
+    margin-top: -10px; /* Pull it up slightly */
+    text-align: left;
+}
+
+/* Summary Text */
+.summary {
+    font-size: 1rem;
+    color: #444;
+    margin-bottom: 10px;
+}
+
+/* Achievements List */
+.achievements {
+    list-style: none;
+    padding: 0;
+}
+
+/* Achievements Items */
+.achievements li {
+    font-size: 0.95rem;
+    color: #666;
+    padding-left: 20px;
+    position: relative;
+    margin-bottom: 5px;
+}
+
+/* Checkmark Bullet */
+.achievements li::before {
+    content: "✔";
+    color: #007bff;
+    font-weight: bold;
+    position: absolute;
+    left: 0;
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+    .experience {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    .experience-left,
+    .experience-right {
+        width: 100%;
+        text-align: center;
+    }
+
+    .timeline {
+        width: 80%;
+    }
+}
+
+@media (max-width: 768px) {
+    .experience {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .experience-left,
+    .experience-right {
+        width: 100%;
+        text-align: center;
+    }
+
+    .timeline {
+        flex-direction: row;
+        width: 100%;
+    }
+
+    .timeline-line {
+        height: 3px;
+        width: 50px;
+    }
+}
+
+/* Mobile Adjustments */
+@media (max-width: 480px) {
+    .section-title {
+        font-size: 1.8rem;
+    }
+
+    .experience-left h3 {
+        font-size: 1.3rem;
+    }
+
+    .company-name {
+        font-size: 0.9rem;
+    }
+
+    .summary {
+        font-size: 0.9rem;
+    }
+
+    .achievements li {
+        font-size: 0.85rem;
+    }
+
+    .timeline {
+        width: 100%;
+    }
+
+    .timeline-dates {
+        font-size: 0.8rem;
+    }
+
+    .timeline-line {
+        width: 70%;
+    }
+}
+
+/* Dark Mode */
+.dark-mode .section-title {
+    color: #fff;
+}
+
+.dark-mode .timeline-dates {
+    color: #deeffc;
+    opacity: 0.6;
+}
+
+.dark-mode .company-name {
+    color: rgb(222, 239, 252, 0.6);
+}
+
+.dark-mode .summary {
+    color: #f9f9f9;
+}
+
+.dark-mode .achievements li {
+    color: rgb(249, 249, 249, 0.6);
+}
