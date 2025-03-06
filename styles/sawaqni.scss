@@ -1,0 +1,153 @@
+/* ====== Global Styles ====== */
+:root {
+    --primary-color: #ff9900;
+    --text-color: #333;
+    --bg-color: #ffffff;
+    --card-bg: #f5f5f5;
+    --overlay-color: rgba(0, 0, 0, 0.7);
+    --transition: all 0.3s ease-in-out;
+}
+
+/* Dark Mode Colors */
+.dark-mode {
+    --text-color: #ffffff;
+    --bg-color: #121212;
+    --card-bg: #1e1e1e;
+    --overlay-color: rgba(0, 0, 0, 0.8);
+}
+
+/* ====== General Page Styling ====== */
+body {
+    font-family: "Poppins", sans-serif;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    margin: 0;
+    padding: 0;
+    transition: var(--transition);
+}
+
+.container {
+    max-width: 1200px;
+    margin: auto;
+    padding: 20px;
+}
+
+/* ====== Header Styling ====== */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 20px;
+    background-color: var(--card-bg);
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    transition: var(--transition);
+}
+
+.logo {
+    font-size: 1.8rem;
+    font-weight: bold;
+    color: var(--primary-color);
+}
+
+#theme-toggle {
+    font-size: 1.2rem;
+    cursor: pointer;
+    border: none;
+    background: none;
+    color: var(--text-color);
+    transition: var(--transition);
+}
+
+#theme-toggle:hover {
+    color: var(--primary-color);
+}
+
+/* ====== Project Section ====== */
+.project-container {
+    text-align: center;
+    padding: 60px 20px;
+}
+
+.project-title {
+    font-size: clamp(1.8rem, 2.5vw, 2.2rem);
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+.project-image {
+    width: 100%;
+    max-width: 800px;
+    height: auto;
+    border-radius: 10px;
+    transition: var(--transition);
+}
+
+.project-image:hover {
+    transform: scale(1.02);
+}
+
+.project-description {
+    font-size: clamp(1rem, 1.2vw, 1.1rem);
+    line-height: 1.6;
+    max-width: 800px;
+    margin: 20px auto;
+    text-align: justify;
+}
+
+/* ====== Back Button ====== */
+.back-btn {
+    display: inline-block;
+    margin-top: 20px;
+    padding: 12px 24px;
+    background-color: var(--primary-color);
+    color: #fff;
+    font-size: clamp(0.9rem, 1vw, 1rem);
+    font-weight: bold;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: var(--transition);
+}
+
+.back-btn:hover {
+    background-color: #e68200;
+}
+
+/* ====== Responsive Design ====== */
+@media (max-width: 900px) {
+    header {
+        flex-direction: column;
+        text-align: center;
+        padding: 10px;
+    }
+
+    .project-title {
+        font-size: 1.8rem;
+    }
+
+    .project-description {
+        font-size: 1rem;
+    }
+
+    .back-btn {
+        padding: 10px 20px;
+    }
+}
+
+@media (max-width: 600px) {
+    .project-container {
+        padding: 40px 15px;
+    }
+
+    .project-title {
+        font-size: 1.5rem;
+    }
+
+    .project-description {
+        font-size: 0.95rem;
+    }
+
+    .back-btn {
+        font-size: 0.9rem;
+        padding: 8px 16px;
+    }
+}
