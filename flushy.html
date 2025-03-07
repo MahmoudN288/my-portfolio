@@ -3,26 +3,87 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Project 1 Details</title>
-    <link rel="stylesheet" href="styles.css"> <!-- Main CSS -->
-    <script defer src="script.js"></script> <!-- Dark mode script -->
+    <title>Flushy - Project Details</title>
+    <link rel="stylesheet" href="styles.css">
+    <script defer src="script.js"></script>
 </head>
 <body>
+
     <header>
-        <button id="theme-toggle">🌙</button> <!-- Theme Toggle -->
-        <a href="#" id="back-to-projects" class="back-btn">⬅ Back to Projects</a>
+        <button id="theme-toggle">🌙</button>
+        <a href="index.html" id="back-to-projects" class="back-btn">⬅ Back to Projects</a>
     </header>
 
     <main class="project-details">
-        <h1>Project 1: Name</h1>
-        <img src="assets/project1.jpg" alt="Project 1">
-        <p><strong>Date:</strong> January 2024</p>
-        <p><strong>Description:</strong> This project is about...</p>
-        <p><strong>Technologies Used:</strong> HTML, CSS, JavaScript...</p>
+        <h1>Flushy - Live Football Scores</h1>
+        <img src="assets/flushy.jpg" alt="Flushy App Screenshot" class="project-main-img">
+
+        <!-- 🔹 Expandable Project Description -->
+        <div class="project-description">
+            <p id="description-text">Flushy is a real-time football score tracking app that provides users with live updates, player stats, match schedules, and in-depth team analysis. The app integrates with multiple football data APIs to deliver accurate and up-to-date information.</p>
+            <button id="see-more-btn">See More ⬇</button>
+        </div>
+
+        <!-- 🔹 Technologies Used -->
+        <section class="technologies">
+            <h2>Technologies Used</h2>
+            <div class="tech-icons">
+                <div class="tech" data-tooltip="Android SDK - Core framework for Android development"><img src="assets/android-sdk.png" alt="Android SDK"></div>
+                <div class="tech" data-tooltip="Kotlin - Primary programming language"><img src="assets/kotlin.png" alt="Kotlin"></div>
+                <div class="tech" data-tooltip="Retrofit - Networking library"><img src="assets/retrofit.png" alt="Retrofit"></div>
+                <div class="tech" data-tooltip="Room - Local database management"><img src="assets/room.png" alt="Room"></div>
+            </div>
+        </section>
+
+        <!-- 🔹 Project Timeline -->
+        <section class="timeline">
+            <h2>Project Timeline</h2>
+            <ul>
+                <li><strong>Start Date:</strong> October 2023</li>
+                <li><strong>Beta Release:</strong> December 2023</li>
+                <li><strong>Official Launch:</strong> January 2024</li>
+                <li><strong>Achievement:</strong> 10K+ downloads in first month</li>
+            </ul>
+        </section>
+
+        <!-- 🔹 Image Gallery -->
+        <section class="gallery">
+            <h2>Image Gallery</h2>
+            <div class="gallery-grid">
+                <img src="assets/screenshot1.jpg" class="gallery-img" alt="Flushy Screenshot 1">
+                <img src="assets/screenshot2.jpg" class="gallery-img" alt="Flushy Screenshot 2">
+                <img src="assets/screenshot3.jpg" class="gallery-img" alt="Flushy Screenshot 3">
+            </div>
+        </section>
+
+        <!-- 🔹 Code Sample -->
+        <section class="code-sample">
+            <h2>Code Sample</h2>
+            <pre><code class="kotlin">
+val api = Retrofit.Builder()
+    .baseUrl("https://api.football.com")
+    .addConverterFactory(GsonConverterFactory.create())
+    .build()
+    .create(ApiService::class.java)
+
+api.getScores().enqueue(object : Callback<List<Match>> {
+    override fun onResponse(call: Call<List<Match>>, response: Response<List<Match>>) {
+        if (response.isSuccessful) {
+            updateUI(response.body() ?: emptyList())
+        }
+    }
+    override fun onFailure(call: Call<List<Match>>, t: Throwable) {
+        Log.e("Flushy", "Error fetching scores", t)
+    }
+})
+            </code></pre>
+        </section>
     </main>
 
     <footer>
-        <p>© 2025 My Portfolio</p>
+        <p>© 2025 Flushy | Designed by <strong>Mahmoud Gharib</strong></p>
+        <img src="assets/logo.png" alt="Your Logo" class="footer-logo">
     </footer>
+
 </body>
 </html>

@@ -1,153 +1,238 @@
-/* ====== Global Styles ====== */
-:root {
-    --primary-color: #ff9900;
-    --text-color: #333;
-    --bg-color: #ffffff;
-    --card-bg: #f5f5f5;
-    --overlay-color: rgba(0, 0, 0, 0.7);
-    --transition: all 0.3s ease-in-out;
-}
-
-/* Dark Mode Colors */
-.dark-mode {
-    --text-color: #ffffff;
-    --bg-color: #121212;
-    --card-bg: #1e1e1e;
-    --overlay-color: rgba(0, 0, 0, 0.8);
-}
-
-/* ====== General Page Styling ====== */
-body {
-    font-family: "Poppins", sans-serif;
-    background-color: var(--bg-color);
-    color: var(--text-color);
+/* General Styles */
+* {
     margin: 0;
     padding: 0;
-    transition: var(--transition);
+    box-sizing: border-box;
+    font-family: 'Arial', sans-serif;
 }
 
-.container {
-    max-width: 1200px;
-    margin: auto;
+body {
+    background-color: #121212;
+    color: #fff;
+    line-height: 1.6;
     padding: 20px;
 }
 
-/* ====== Header Styling ====== */
+/* Header */
 header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 15px 20px;
-    background-color: var(--card-bg);
-    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
-    transition: var(--transition);
+    padding: 15px 30px;
+    background: #1e1e1e;
+    border-radius: 8px;
 }
 
-.logo {
-    font-size: 1.8rem;
-    font-weight: bold;
-    color: var(--primary-color);
-}
-
-#theme-toggle {
-    font-size: 1.2rem;
-    cursor: pointer;
-    border: none;
-    background: none;
-    color: var(--text-color);
-    transition: var(--transition);
-}
-
-#theme-toggle:hover {
-    color: var(--primary-color);
-}
-
-/* ====== Project Section ====== */
-.project-container {
-    text-align: center;
-    padding: 60px 20px;
-}
-
-.project-title {
-    font-size: clamp(1.8rem, 2.5vw, 2.2rem);
-    font-weight: bold;
-    margin-bottom: 20px;
-}
-
-.project-image {
-    width: 100%;
-    max-width: 800px;
-    height: auto;
-    border-radius: 10px;
-    transition: var(--transition);
-}
-
-.project-image:hover {
-    transform: scale(1.02);
-}
-
-.project-description {
-    font-size: clamp(1rem, 1.2vw, 1.1rem);
-    line-height: 1.6;
-    max-width: 800px;
-    margin: 20px auto;
-    text-align: justify;
-}
-
-/* ====== Back Button ====== */
 .back-btn {
-    display: inline-block;
-    margin-top: 20px;
-    padding: 12px 24px;
-    background-color: var(--primary-color);
     color: #fff;
-    font-size: clamp(0.9rem, 1vw, 1rem);
-    font-weight: bold;
     text-decoration: none;
+    font-size: 16px;
+    background: #ff4757;
+    padding: 8px 15px;
     border-radius: 5px;
-    transition: var(--transition);
+    transition: background 0.3s;
 }
 
 .back-btn:hover {
-    background-color: #e68200;
+    background: #e84118;
 }
 
-/* ====== Responsive Design ====== */
-@media (max-width: 900px) {
-    header {
+#theme-toggle {
+    background: transparent;
+    border: none;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+/* Main Content */
+main {
+    max-width: 900px;
+    margin: 20px auto;
+    background: #1a1a1a;
+    padding: 25px;
+    border-radius: 10px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+/* Project Title */
+.project-details h1 {
+    text-align: center;
+    font-size: 28px;
+    margin-bottom: 15px;
+    color: #ffdd57;
+}
+
+/* Main Image */
+.project-main-img {
+    display: block;
+    width: 100%;
+    max-width: 600px;
+    margin: 0 auto 20px;
+    border-radius: 10px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+/* Description */
+.project-description {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+#see-more-btn {
+    margin-top: 10px;
+    padding: 8px 15px;
+    border: none;
+    background: #ff4757;
+    color: white;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background 0.3s;
+}
+
+#see-more-btn:hover {
+    background: #e84118;
+}
+
+/* Technologies Used */
+.technologies {
+    margin-top: 20px;
+}
+
+.technologies h2 {
+    font-size: 22px;
+    color: #ffdd57;
+    text-align: center;
+}
+
+.tech-icons {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 15px;
+    padding: 10px;
+}
+
+.tech img {
+    width: 50px;
+    height: 50px;
+    border-radius: 5px;
+    transition: transform 0.3s ease;
+}
+
+.tech img:hover {
+    transform: scale(1.1);
+}
+
+/* Timeline */
+.timeline {
+    margin-top: 20px;
+}
+
+.timeline h2 {
+    text-align: center;
+    font-size: 22px;
+    color: #ffdd57;
+}
+
+.timeline ul {
+    list-style: none;
+    padding: 15px;
+    background: #232323;
+    border-radius: 8px;
+}
+
+.timeline li {
+    padding: 8px 0;
+    border-bottom: 1px solid #444;
+}
+
+.timeline li:last-child {
+    border-bottom: none;
+}
+
+/* Image Gallery */
+.gallery {
+    margin-top: 25px;
+}
+
+.gallery h2 {
+    text-align: center;
+    font-size: 22px;
+    color: #ffdd57;
+}
+
+.gallery-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 15px;
+    margin-top: 10px;
+}
+
+.gallery-img {
+    width: 100%;
+    max-width: 250px;
+    border-radius: 8px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.gallery-img:hover {
+    transform: scale(1.1);
+    box-shadow: 0px 4px 10px rgba(255, 255, 255, 0.2);
+}
+
+/* Code Sample */
+.code-sample {
+    margin-top: 25px;
+    background: #232323;
+    padding: 15px;
+    border-radius: 8px;
+}
+
+.code-sample h2 {
+    font-size: 22px;
+    text-align: center;
+    color: #ffdd57;
+}
+
+pre {
+    background: #1a1a1a;
+    padding: 15px;
+    border-radius: 5px;
+    overflow-x: auto;
+}
+
+/* Footer */
+footer {
+    margin-top: 30px;
+    text-align: center;
+    padding: 15px;
+    background: #1e1e1e;
+    border-radius: 8px;
+}
+
+.footer-logo {
+    margin-top: 10px;
+    width: 50px;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    main {
+        padding: 15px;
+    }
+
+    .tech-icons {
+        gap: 10px;
+    }
+
+    .tech img {
+        width: 40px;
+        height: 40px;
+    }
+
+    .gallery-grid {
         flex-direction: column;
-        text-align: center;
-        padding: 10px;
-    }
-
-    .project-title {
-        font-size: 1.8rem;
-    }
-
-    .project-description {
-        font-size: 1rem;
-    }
-
-    .back-btn {
-        padding: 10px 20px;
-    }
-}
-
-@media (max-width: 600px) {
-    .project-container {
-        padding: 40px 15px;
-    }
-
-    .project-title {
-        font-size: 1.5rem;
-    }
-
-    .project-description {
-        font-size: 0.95rem;
-    }
-
-    .back-btn {
-        font-size: 0.9rem;
-        padding: 8px 16px;
+        align-items: center;
     }
 }

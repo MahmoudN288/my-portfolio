@@ -15,6 +15,8 @@ document.addEventListener("DOMContentLoaded", function () {
         projectLinks: document.querySelectorAll(".project-link"),
         contactForm: document.getElementById("contactForm"),
         formMessage: document.getElementById("formMessage"),
+        descriptionText: document.getElementById("description-text"),
+        seeMoreBtn: document.getElementById("see-more-btn"),
     };
 
     /* ====== ✅ Apply & Sync Dark Mode ====== */
@@ -39,6 +41,14 @@ document.addEventListener("DOMContentLoaded", function () {
     window.addEventListener("storage", (event) => {
         if (event.key === "dark-mode") applyTheme();
     });
+
+    /* ====== ✅ Expandable Description ====== */
+    if (DOM.seeMoreBtn && DOM.descriptionText) {
+        DOM.seeMoreBtn.addEventListener("click", () => {
+            DOM.descriptionText.classList.toggle("expanded");
+            DOM.seeMoreBtn.textContent = DOM.descriptionText.classList.contains("expanded") ? "See Less ⬆" : "See More ⬇";
+        });
+    }
 
     /* ====== ✅ Navbar Transparency on Scroll (Optimized) ====== */
     let lastScroll = 0;
