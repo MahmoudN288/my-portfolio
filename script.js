@@ -17,7 +17,35 @@ document.addEventListener("DOMContentLoaded", function () {
         formMessage: document.getElementById("formMessage"),
         descriptionText: document.getElementById("description-text"),
         seeMoreBtn: document.getElementById("see-more-btn"),
+        /* ✅ Select Elements */
+        seeMoreImg: document.getElementById("see-more-img"),
+        modal: document.getElementById("image-modal"),
+        modalImg: document.getElementById("modal-img"),
+        modalDesc: document.getElementById("modal-description"),
+        closeBtn: document.querySelector(".close"),
+        prevBtn: document.getElementById("prev-btn"),
+        nextBtn: document.getElementById("next-btn"),
     };
+
+    /* ====== ✅ Expandable Description (See More) ====== */
+    function checkOverflow() {
+        if (DOM.descriptionText.scrollHeight > DOM.descriptionText.clientHeight) {
+            DOM.seeMoreBtn.style.display = "inline-flex";
+        } else {
+            DOM.seeMoreBtn.style.display = "none";
+        }
+    }
+
+    if (DOM.seeMoreBtn && DOM.descriptionText) {
+        checkOverflow(); // Run on page load
+
+        DOM.seeMoreBtn.addEventListener("click", () => {
+            DOM.descriptionText.classList.toggle("expanded");
+            DOM.seeMoreBtn.innerHTML = DOM.descriptionText.classList.contains("expanded")
+                ? 'See Less <span class="arrow">⬆</span>'
+                : 'See More <span class="arrow">⬇</span>';
+        });
+    }
 
     /* ====== ✅ Apply & Sync Dark Mode ====== */
     function applyTheme() {
@@ -41,14 +69,6 @@ document.addEventListener("DOMContentLoaded", function () {
     window.addEventListener("storage", (event) => {
         if (event.key === "dark-mode") applyTheme();
     });
-
-    /* ====== ✅ Expandable Description ====== */
-    if (DOM.seeMoreBtn && DOM.descriptionText) {
-        DOM.seeMoreBtn.addEventListener("click", () => {
-            DOM.descriptionText.classList.toggle("expanded");
-            DOM.seeMoreBtn.textContent = DOM.descriptionText.classList.contains("expanded") ? "See Less ⬆" : "See More ⬇";
-        });
-    }
 
     /* ====== ✅ Navbar Transparency on Scroll (Optimized) ====== */
     let lastScroll = 0;
@@ -144,9 +164,9 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
     /* ====== ✅ Save & Restore Scroll Position (Project Page) ====== */
-    window.addEventListener("beforeunload", () => {
+    /*window.addEventListener("beforeunload", () => {
         sessionStorage.setItem("scrollPosition", window.scrollY);
-    });
+    });*/
 
     const savedScrollPosition = sessionStorage.getItem("scrollPosition");
     if (savedScrollPosition) {
@@ -173,6 +193,59 @@ document.addEventListener("DOMContentLoaded", function () {
                 : (window.location.href = "index.html");
         });
     }
+
+    /* ✅ Full Image List */
+    const images = [
+        { src: "assets/projects/flushy/flushy 1.png", desc: "Flushy - Live Scores App" },
+        { src: "assets/projects/flushy/flushy 2.png", desc: "Background Design" },
+        { src: "assets/projects/flushy/flushy 3.png", desc: "Sawaqni - eCommerce App" },
+        { src: "assets/projects/flushy/flushy 4.jpg", desc: "Flushy 4" },
+        { src: "assets/projects/flushy/flushy 5.jpg", desc: "Flushy 5" },
+        { src: "assets/projects/flushy/flushy 6.jpg", desc: "Flushy 6" }
+    ];
+
+    let currentIndex = 0; // Track image index
+
+    /* ✅ Show Image in Modal */
+    function showImage() {
+        DOM.modalImg.src = images[currentIndex].src;
+        DOM.modalDesc.textContent = images[currentIndex].desc;
+    
+        // Update progress bar
+        const progressWidth = ((currentIndex + 1) / images.length) * 100;
+        document.querySelector(".progress-bar-gal").style.width = `${progressWidth}%`;
+    }
+
+    /* ✅ Open Modal and Show First Image */
+    DOM.seeMoreImg.addEventListener("click", () => {
+        currentIndex = 0;
+        showImage();
+        DOM.modal.style.display = "flex";
+    });
+
+    /* ✅ Next Image */
+    DOM.nextBtn.addEventListener("click", () => {
+        currentIndex = (currentIndex + 1) % images.length; // Loop back to first
+        showImage();
+    });
+
+    /* ✅ Previous Image */
+    DOM.prevBtn.addEventListener("click", () => {
+        currentIndex = (currentIndex - 1 + images.length) % images.length; // Loop back to last
+        showImage();
+    });
+
+    /* ✅ Close Modal */
+    DOM.closeBtn.addEventListener("click", () => {
+        DOM.modal.style.display = "none";
+    });
+
+    /* ✅ Close on Background Click */
+    DOM.modal.addEventListener("click", (e) => {
+        if (e.target === DOM.modal) {
+            DOM.modal.style.display = "none";
+        }
+    });
 });
 
 /* ====== ✅ Ensure EmailJS is Loaded Before Initializing ====== */

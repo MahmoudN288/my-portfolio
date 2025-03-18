@@ -20,18 +20,24 @@
 
         <!-- 🔹 Expandable Project Description -->
         <div class="project-description">
-            <p id="description-text">Flushy is a real-time football score tracking app that provides users with live updates, player stats, match schedules, and in-depth team analysis. The app integrates with multiple football data APIs to deliver accurate and up-to-date information.</p>
-            <button id="see-more-btn">See More ⬇</button>
+            <p id="description-text" class="collapsed">
+                Flushy is a real-time football score tracking app that provides users with live updates, player stats, match schedules, and in-depth team analysis. The app integrates with multiple football data APIs to deliver accurate and up-to-date information. Flushy is a real-time football score tracking app that provides users with live updates, player stats, match schedules, and in-depth team analysis. The app integrates with multiple football data APIs to deliver accurate and up-to-date information.
+            </p>
+           <button id="see-more-btn">
+                See More 
+                <span class="arrow">⬇</span>
+            </button>
         </div>
 
         <!-- 🔹 Technologies Used -->
         <section class="technologies">
             <h2>Technologies Used</h2>
             <div class="tech-icons">
-                <div class="tech" data-tooltip="Android SDK - Core framework for Android development"><img src="assets/android-sdk.png" alt="Android SDK"></div>
-                <div class="tech" data-tooltip="Kotlin - Primary programming language"><img src="assets/kotlin.png" alt="Kotlin"></div>
-                <div class="tech" data-tooltip="Retrofit - Networking library"><img src="assets/retrofit.png" alt="Retrofit"></div>
-                <div class="tech" data-tooltip="Room - Local database management"><img src="assets/room.png" alt="Room"></div>
+                <div class="tech" data-tooltip="Android SDK - Core framework for Android development"><img src="assets/technologies/android-sdk.png" alt="Android SDK"></div>
+                <div class="tech" data-tooltip="Kotlin - Primary programming language"><img src="assets/technologies/kotlin.png" alt="Kotlin"></div>
+                <div class="tech" data-tooltip="Jetpack-Compose - UI Toolkit"><img src="assets/technologies/jetpack.png" alt="Jetpack-Compose"></div>
+                <div class="tech" data-tooltip="Retrofit - Networking library"><img src="assets/technologies/retrofit.png" alt="Retrofit"></div>
+                <div class="tech" data-tooltip="Room - Local database management"><img src="assets/technologies/room.png" alt="Room"></div>
             </div>
         </section>
 
@@ -40,9 +46,8 @@
             <h2>Project Timeline</h2>
             <ul>
                 <li><strong>Start Date:</strong> October 2023</li>
-                <li><strong>Beta Release:</strong> December 2023</li>
                 <li><strong>Official Launch:</strong> January 2024</li>
-                <li><strong>Achievement:</strong> 10K+ downloads in first month</li>
+
             </ul>
         </section>
 
@@ -50,39 +55,29 @@
         <section class="gallery">
             <h2>Image Gallery</h2>
             <div class="gallery-grid">
-                <img src="assets/screenshot1.jpg" class="gallery-img" alt="Flushy Screenshot 1">
-                <img src="assets/screenshot2.jpg" class="gallery-img" alt="Flushy Screenshot 2">
-                <img src="assets/screenshot3.jpg" class="gallery-img" alt="Flushy Screenshot 3">
+                <img src="assets/projects/flushy/flushy 1.png" class="gallery-img" alt="Flushy 1" data-description="Flushy Home Screen">
+                <img src="assets/projects/flushy/flushy 2.png" class="gallery-img" alt="Flushy 2" data-description="Background Design">
+                <img src="assets/projects/flushy/flushy 3.png" class="gallery-img" alt="Flushy 3" data-description="Sawaqni App UI">
             </div>
+            <button id="see-more-img" class="see-more-img">See More</button>
         </section>
 
-        <!-- 🔹 Code Sample -->
-        <section class="code-sample">
-            <h2>Code Sample</h2>
-            <pre><code class="kotlin">
-val api = Retrofit.Builder()
-    .baseUrl("https://api.football.com")
-    .addConverterFactory(GsonConverterFactory.create())
-    .build()
-    .create(ApiService::class.java)
-
-api.getScores().enqueue(object : Callback<List<Match>> {
-    override fun onResponse(call: Call<List<Match>>, response: Response<List<Match>>) {
-        if (response.isSuccessful) {
-            updateUI(response.body() ?: emptyList())
-        }
-    }
-    override fun onFailure(call: Call<List<Match>>, t: Throwable) {
-        Log.e("Flushy", "Error fetching scores", t)
-    }
-})
-            </code></pre>
-        </section>
+        <!-- 🔹 Modal for Full Album -->
+        <div id="image-modal" class="modal">
+            <span class="close">&times;</span>
+            <button id="prev-btn" class="nav-btn">⬅</button>
+            <img id="modal-img" class="modal-content">
+            <p id="modal-description"></p>
+            <button id="next-btn" class="nav-btn">➡</button>
+            <div class="progress-container">
+                <div class="progress-bar-gal"></div>
+            </div>
+        </div>
     </main>
 
     <footer>
         <p>© 2025 Flushy | Designed by <strong>Mahmoud Gharib</strong></p>
-        <img src="assets/logo.png" alt="Your Logo" class="footer-logo">
+        <img src="assets/mgl.png" alt="Mahmoud Gharib Logo" class="logo-s">
     </footer>
 
 </body>

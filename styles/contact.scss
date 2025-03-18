@@ -95,6 +95,10 @@
     background: var(--accent-color);
 }
 
+.dark-mode .contact_btn {
+    color: #000;
+}
+
 /* Responsive */
 @media (max-width: 768px) {
     .contact-wrapper {

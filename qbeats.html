@@ -3,26 +3,41 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Project 1 Details</title>
-    <link rel="stylesheet" href="styles.css"> <!-- Main CSS -->
-    <script defer src="script.js"></script> <!-- Dark mode script -->
+    <title>QBeats - Project Details</title>
+    <link rel="stylesheet" href="styles.css">
+    <script defer src="script.js"></script>
 </head>
 <body>
-    <header>
-        <button id="theme-toggle">🌙</button> <!-- Theme Toggle -->
-        <a href="#" id="back-to-projects" class="back-btn">⬅ Back to Projects</a>
+
+    <header id="qbeats-header">
+        <button id="theme-toggle">🌙</button>
+        <a href="index.html" id="qbeats-back-to-projects" class="qbeats-back-btn">⬅ Back to Projects</a>
     </header>
 
-    <main class="project-details">
-        <h1>Project 1: Name</h1>
-        <img src="assets/project1.jpg" alt="Project 1">
-        <p><strong>Date:</strong> January 2024</p>
-        <p><strong>Description:</strong> This project is about...</p>
-        <p><strong>Technologies Used:</strong> HTML, CSS, JavaScript...</p>
+    <main id="qbeats-main">
+        <h1 class="qbeats-title">QBeats - Music Streaming App</h1>
+        <img src="assets/qbeats.jpg" alt="QBeats App Screenshot" class="qbeats-main-img">
+
+        <div class="qbeats-description">
+            <p id="qbeats-description-text">
+                QBeats is a high-quality music streaming app that offers a seamless listening experience with an extensive music library, offline playback, and personalized playlists.
+            </p>
+            <button id="qbeats-see-more-btn">See More <span class="arrow">⬇</span></button>
+        </div>
+
+        <section class="qbeats-tech">
+            <h2>Technologies Used</h2>
+            <div class="qbeats-tech-icons">
+                <img src="assets/technologies/android-sdk.png" alt="Android SDK">
+                <img src="assets/technologies/kotlin.png" alt="Kotlin">
+                <img src="assets/technologies/exoplayer.png" alt="ExoPlayer">
+            </div>
+        </section>
     </main>
 
-    <footer>
-        <p>© 2025 My Portfolio</p>
+    <footer id="qbeats-footer">
+        <p>© 2025 QBeats | Designed by <strong>Mahmoud Gharib</strong></p>
     </footer>
+
 </body>
 </html>
